@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap");
+
+@import "tailwindcss";
+
+@plugin "@midudev/tailwind-animations";
+
+@font-face {
+  font-family: "BoldestRomance";
+  src: url("./assets/BoldestRomance.otf");
+  font-style: normal;
+  font-weight: 100 700;
+}
+
+@theme {
+  /* Colors  */
+  --color-background: #e3e0c8;
+  --color-background-light: #f0f0e3;
+
+  --color-primary: #593f0d;
+  --color-primary-light: #b59d75;
+
+  --color-secondary: #4e940f;
+  --color-secondary-dark: #12452c;
+
+  /* Fonts */
+  --font-titles: "BoldestRomance", sans-serif;
+  --font-fredoka: Fredoka, sans-serif;
+
+  --background-image-header: url("/header1.jpg");
+  --background-image-footer: url("/grassFooter.png");
+
+  /* Breakpoints */
+  --breakpoint-xs: 480px;
+}
+
+@layer base {
+  .body {
+    @apply flex flex-col min-h-screen
+    bg-background font-fredoka;
+  }
+
+  #root {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  h1 {
+    @apply font-titles;
+  }
+
+  h2 {
+    @apply font-semibold text-2xl text-primary sm:text-3xl;
+  }
+
+  h3 {
+    @apply font-semibold text-lg line-clamp-1;
+  }
+
+  header {
+    @apply flex flex-col justify-between items-center relative
+    p-5 h-85 lg:h-120;
+  }
+
+  header img {
+    @apply w-full max-w-xs h-auto object-contain mx-auto;
+  }
+
+  header h1 {
+    @apply mx-auto max-w-4xl text-center align-text-bottom text-6xl xs:text-7xl text-white drop-shadow-md/30;
+  }
+}
+
+@layer components {
+  .pattern {
+    @apply bg-header w-full bg-center bg-cover absolute h-[350px] lg:h-120 mask-b-from-75% mask-b-to-100%;
+  }
+
+  .wrapper {
+    @apply px-5 py-12 xs:p-10 max-w-7xl mx-auto flex flex-col relative;
+  }
+
+  .navbar {
+    @apply flex flex-row justify-evenly font-semibold text-2xl text-white bg-secondary-dark;
+
+    & a {
+      @apply hover:underline;
+    }
+  }
+
+  .movie-list {
+    & ul {
+      @apply grid grid-cols-1 gap-5 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+    }
+  }
+
+  .movie-card {
+    @apply border-primary-light border-2 rounded-xl p-5 bg-background-light hoverButton;
+    box-shadow: 0 2px 0 0 var(--color-primary-light);
+
+    & .info {
+      @apply flex justify-between;
+    }
+  }
+
+  .search {
+    @apply w-full bg-background-light p-2 rounded-full border-primary-light border-2 my-5 max-w-3xl mx-auto;
+    box-shadow: inset 0 2px 0 0 var(--color-primary-light);
+
+    & div {
+      @apply relative flex items-center;
+    }
+
+    & img {
+      @apply absolute h-5 w-5;
+    }
+
+    & input {
+      @apply w-full bg-transparent py-2 sm:pr-10 pl-10 text-base text-primary placeholder-primary-light outline-hidden;
+    }
+
+    & .clearButton {
+      @apply mr-2 font-bold bg-secondary text-background-light px-2 py-0.5 rounded-full hoverButton;
+      box-shadow: 0 3px 0 0 var(--color-secondary-dark);
+    }
+  }
+
+  .rating {
+    @apply flex flex-row items-center gap-1;
+  }
+
+  .movie-info {
+    @apply text-lg lg:max-w-5xl;
+
+    & .movie-title {
+      @apply text-primary max-w-4xl text-4xl xs:text-6xl;
+    }
+
+    & .info-item {
+      @apply flex flex-wrap py-2
+      border-b-2 border-primary-light border-dotted;
+    }
+
+    & .info-section-title {
+      @apply text-xl font-semibold text-white bg-secondary rounded-full py-3 px-6 ml-3;
+    }
+
+    & .info-section {
+      @apply bg-background-light rounded-2xl  p-5;
+    }
+
+    & .info-item-title {
+      @apply font-semibold text-primary pr-3;
+    }
+  }
+}
+
+@utility hoverButton {
+  @apply cursor-pointer hover:scale-105 transition;
+}
