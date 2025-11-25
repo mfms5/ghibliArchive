@@ -15,7 +15,10 @@ const Footer = () => {
             </Link>
           </li>
           <li>
-            <a href="#" className="hover:underline me-4 md:me-6">
+            <a
+              href="https://github.com/mfms5/ghibliArchive"
+              className="hover:underline me-4 md:me-6"
+            >
               GitHub
             </a>
           </li>

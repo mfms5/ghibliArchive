@@ -36,7 +36,7 @@
 @layer base {
   .body {
     @apply flex flex-col min-h-screen
-    bg-background font-fredoka;
+   bg-background font-fredoka;
   }
 
   #root {
@@ -130,7 +130,8 @@
   }
 
   .movie-info {
-    @apply text-lg lg:max-w-5xl;
+    @apply bg-background-light flex flex-col p-6 xs:p-10 mx-auto text-lg lg:max-w-5xl border-primary-light border-5 rounded-4xl;
+    box-shadow: 0 8px 0 0 var(--color-primary-light);
 
     & .movie-title {
       @apply text-primary max-w-4xl text-4xl xs:text-6xl;
@@ -146,7 +147,7 @@
     }
 
     & .info-section {
-      @apply bg-background-light rounded-2xl  p-5;
+      @apply bg-white/90 rounded-2xl  p-5;
     }
 
     & .info-item-title {
