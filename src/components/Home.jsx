@@ -1,6 +1,7 @@
 import Header from "./Header";
 import MovieList from "./MovieList";
 import Search from "./Search";
+import Sort from "./Sort";
 import { useRef } from "react";
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
         <section>
           <h2 className="my-3">Movies</h2>
           <Search movieListRef={movieListRef} />
+          <Sort movieListRef={movieListRef} />
           <MovieList ref={movieListRef} />
         </section>
       </div>

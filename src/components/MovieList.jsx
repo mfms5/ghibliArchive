@@ -1,11 +1,16 @@
 import { useState, useEffect, useImperativeHandle } from "react";
 import moviesService from "../services/movies";
 import MovieCard from "./MovieCard";
-import { filterByTitle } from "../utils/movieFiltering";
+import {
+  filterByTitle,
+  sortByRating,
+  sortByYear,
+} from "../utils/movieListOperations";
 
 const MovieList = (props) => {
   const [allMovies, setAllMovies] = useState([]);
   const [moviesToShow, setMoviesToShow] = useState([]);
+  const [sortType, setSortingType] = useState("yearAsc");
 
   useEffect(() => {
     moviesService
@@ -19,14 +24,34 @@ const MovieList = (props) => {
 
   const filterSearch = (searchTerm) => {
     if (!searchTerm) {
-      setMoviesToShow(allMovies);
+      sortMovies(allMovies);
     } else {
-      setMoviesToShow(filterByTitle(searchTerm, allMovies));
+      sortMovies(filterByTitle(searchTerm, allMovies));
     }
   };
 
+  const sortMovies = (moviesToSort) => {
+    switch (sortType) {
+      //Default order in the API
+      case "yearAsc":
+        setMoviesToShow(sortByYear(moviesToSort, true));
+        break;
+      case "yearDes":
+        setMoviesToShow(sortByYear(moviesToSort, false));
+        break;
+      case "ratingAsc":
+        setMoviesToShow(sortByRating(moviesToSort, true));
+        break;
+      case "ratingDes":
+        setMoviesToShow(sortByRating(moviesToSort, false));
+        break;
+    }
+  };
+
+  useEffect(() => sortMovies(moviesToShow), [sortType]);
+
   useImperativeHandle(props.ref, () => {
-    return { filterSearch };
+    return { filterSearch, setSortingType };
   });
 
   if (!allMovies) return <div>Loading...</div>;
