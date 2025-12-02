@@ -23,7 +23,6 @@ const Search = ({ movieListRef }) => {
           value={searchTerm}
           onChange={(event) => setSearchTerm(event.target.value)}
         />
-        {/*<img src="clear.png" alt="clear" className="right-2" />*/}
         <span className="clearButton" onClick={() => clearSearch()}>
           X
         </span>
