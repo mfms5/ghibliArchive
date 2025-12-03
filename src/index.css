@@ -125,6 +125,27 @@
     }
   }
 
+  .dropdown-wrapper {
+    @apply relative flex flex-row items-center gap-3 justify-center p-2 mb-2;
+
+    & .dropdown-header {
+      @apply flex flex-row bg-background-light border-primary-light border-2 rounded-full py-1 px-5
+      text-primary text-xl justify-between w-auto items-center gap-5 hoverButton;
+      box-shadow: 0 2px 0 0 var(--color-primary-light);
+    }
+
+    & .dropdown-list {
+      @apply absolute top-[95%] flex flex-col bg-background-light border-primary-light border-2
+       rounded-xl p-1 justify-between items-start w-40 cursor-pointer z-10
+        text-primary text-xl;
+      box-shadow: 0 2px 0 0 var(--color-primary-light);
+    }
+
+    & .dropdown-item {
+      @apply hover:bg-primary-light/50 w-full text-left px-2 rounded-md;
+    }
+  }
+
   .rating {
     @apply flex flex-row items-center gap-1;
   }
