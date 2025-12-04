@@ -99,7 +99,7 @@
   }
 
   .movie-card {
-    @apply border-primary-light border-2 rounded-xl p-5 bg-background-light hoverButton;
+    @apply border-primary-light border-2 rounded-xl p-5 bg-background-light hoverButton animate-slide-in-bottom;
     box-shadow: 0 2px 0 0 var(--color-primary-light);
 
     & .info {
