@@ -5,7 +5,11 @@ const MovieCard = ({ title, posterUrl, year, rating, id }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="movie-card group" onClick={() => navigate(`/movies/${id}`)}>
+    <div
+      className="movie-card group"
+      data-testid="movieCard"
+      onClick={() => navigate(`/movies/${id}`)}
+    >
       <img className="rounded-lg w-full h-auto" src={posterUrl} alt={title} />
       <h3>{title}</h3>
       <div className="info">

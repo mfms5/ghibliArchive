@@ -3,7 +3,7 @@ import Home from "./components/Home";
 import Footer from "./components/Footer";
 import MovieInfo from "./components/MovieInfo";
 import About from "./components/About";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
