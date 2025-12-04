@@ -1,4 +1,32 @@
 const About = () => {
+  const resources = [
+    { title: "Studio Ghibli API", link: "https://ghibliapi.vercel.app/" },
+    {
+      title: "Magnifying glass icon by Rutmer Zijlstra - Flaticon",
+      link: "https://www.flaticon.com/free-icons/magnifying-glass",
+    },
+    {
+      title: "Home icon by Flaticon",
+      link: "https://www.flaticon.com/free-icon/home_146871",
+    },
+    {
+      title: "Information icon by Rutmer Zijlstra - Flaticon",
+      link: "https://www.flaticon.com/free-icon/information_9675160",
+    },
+    {
+      title: "Totoro icon by icons8",
+      link: "https://icons8.com/icon/IRRpeULs7luU/totoro",
+    },
+    {
+      title: "Tailwind Animations by Midudev",
+      link: "https://github.com/midudev/tailwind-animations",
+    },
+    {
+      title: "Design inspired by Matt Wierzbicki's Matsu-theme for shadcn/ui",
+      link: "https://matsu-theme.vercel.app/",
+    },
+  ];
+
   return (
     <div className="wrapper">
       <h1 className="text-primary text-4xl xs:text-6xl text-center">About</h1>
@@ -26,30 +54,13 @@ const About = () => {
         <div className="mt-10">
           <span className="info-section-title">Resources used</span>
           <ul className="flex flex-col info-section">
-            <li className="info-item w-full">
-              <a
-                href="https://ghibliapi.vercel.app/"
-                className="info-item-title hover:underline"
-              >
-                Studio Ghibli API
-              </a>
-            </li>
-            <li className="info-item w-full">
-              <a
-                href="https://www.flaticon.com/free-icons/magnifying-glass"
-                className="info-item-title hover:underline"
-              >
-                Magnifying glass icon by Rutmer Zijlstra - Flaticon
-              </a>
-            </li>
-            <li className="info-item w-full">
-              <a
-                href="https://github.com/midudev/tailwind-animations"
-                className="info-item-title hover:underline"
-              >
-                Tailwind Animations by Midudev
-              </a>
-            </li>
+            {resources.map((item) => (
+              <li className="info-item w-full">
+                <a href={item.link} className="info-item-title hover:underline">
+                  {item.title}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
