@@ -54,7 +54,7 @@ const MovieList = (props) => {
     return { filterSearch, setSortingType };
   });
 
-  if (!allMovies) return <div>Loading...</div>;
+  if (allMovies.length === 0) return <div>Loading...</div>;
 
   if (moviesToShow.length === 0) return <div>No movies found!</div>;
 
