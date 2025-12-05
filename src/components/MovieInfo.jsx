@@ -19,7 +19,7 @@ const MovieInfo = () => {
   }
 
   const formatRunningTime = (runningTime) => {
-    const hours = Math.round(runningTime / 60);
+    const hours = Math.trunc(runningTime / 60);
     const minutes = Math.round(runningTime % 60);
 
     return `${hours}h ${minutes}min`;
