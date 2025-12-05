@@ -23,7 +23,11 @@ const Search = ({ movieListRef }) => {
           value={searchTerm}
           onChange={(event) => setSearchTerm(event.target.value)}
         />
-        <span className="clearButton" onClick={() => clearSearch()}>
+        <span
+          className="clearButton"
+          data-testid="clearButton"
+          onClick={() => clearSearch()}
+        >
           X
         </span>
       </div>
