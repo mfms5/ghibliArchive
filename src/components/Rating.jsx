@@ -1,6 +1,6 @@
 const Rating = ({ rating }) => {
   return (
-    <div className="rating">
+    <div className="rating" data-testid="rating">
       <p>{Math.round((rating / 10) * 10) / 10}</p>
       <img
         src="/star.png"

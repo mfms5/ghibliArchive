@@ -53,7 +53,7 @@ const Sort = ({ movieListRef }) => {
           )}
         </button>
         {isOpen && (
-          <div className="dropdown-list">
+          <div className="dropdown-list" data-testid="dropdownList">
             {types.map((type) => (
               <button
                 type="button"
@@ -68,20 +68,6 @@ const Sort = ({ movieListRef }) => {
         )}
       </div>
     </div>
-
-    /*<label>
-      Sort by:
-      <select
-        name="sortingType"
-        value={sortingType}
-        onChange={(event) => onChangeSortType(event.target.value)}
-      >
-        <option value="yearAsc">Year ↑</option>
-        <option value="yearDes">Year ↓</option>
-        <option value="ratingAsc">Rating ↑</option>
-        <option value="ratingDes">Rating ↓</option>
-      </select>
-    </label>*/
   );
 };
 
