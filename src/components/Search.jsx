@@ -22,8 +22,12 @@ const Search = ({ movieListRef }) => {
 
   return (
     <div className="search">
-      <div>
-        <img src="search.png" alt="search" className="left-2" />
+      <div className="flex relative items-center">
+        <img
+          src="search.png"
+          alt="search"
+          className="absolute left-2 h-5 w-5"
+        />
         <input
           type="text"
           placeholder="Search by title"

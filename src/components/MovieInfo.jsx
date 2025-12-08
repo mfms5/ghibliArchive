@@ -41,7 +41,9 @@ const MovieInfo = () => {
   return (
     <div className="wrapper">
       <div className="movie-info">
-        <h1 className="movie-title">{movie.title}</h1>
+        <h1 className="text-primary max-w-4xl text-4xl xs:text-6xl">
+          {movie.title}
+        </h1>
         <div className="flex flex-row gap-2 mt-2">
           <span>{movie.release_date}</span>
           <span>•</span>

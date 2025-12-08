@@ -58,8 +58,7 @@
   }
 
   header {
-    @apply flex flex-col justify-between items-center relative
-    p-5 h-85 lg:h-120;
+    @apply flex flex-col justify-between items-center relative p-5 h-85 lg:h-120;
   }
 
   header img {
@@ -67,21 +66,24 @@
   }
 
   header h1 {
-    @apply mx-auto max-w-4xl text-center align-text-bottom text-6xl xs:text-7xl text-white drop-shadow-md/30;
+    @apply text-center align-text-bottom text-6xl xs:text-7xl text-white drop-shadow-md/30 mx-auto max-w-4xl;
   }
 }
 
 @layer components {
+  /* Home page header background */
   .pattern {
     @apply bg-header w-full bg-center bg-cover absolute h-[350px] lg:h-120 mask-b-from-75% mask-b-to-100%;
   }
 
+  /* Wrapper around main contents of the site to keep them centered */
   .wrapper {
-    @apply px-5 py-12 xs:p-10 max-w-7xl mx-auto flex flex-col relative;
+    @apply flex flex-col relative px-5 py-12 xs:p-10 max-w-7xl mx-auto;
   }
 
+  /* Navigation bar at the top of the page */
   .navbar {
-    @apply flex flex-row justify-evenly font-semibold text-2xl text-white bg-secondary-dark;
+    @apply flex flex-row justify-evenly bg-secondary-dark font-semibold text-2xl text-white;
 
     & a {
       @apply hover:underline flex flex-row items-center gap-2;
@@ -92,87 +94,80 @@
     }
   }
 
+  /**
+   * List of movies displayed as a grid in the Home page.
+   * Number of columns increases with the window size.
+   */
   .movie-list {
     & ul {
-      @apply grid grid-cols-1 gap-5 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+      @apply grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5;
     }
   }
 
+  /* Represents a movie in the movie list. */
   .movie-card {
     @apply border-primary-light border-2 rounded-xl p-5 bg-background-light hoverButton animate-slide-in-bottom;
     box-shadow: 0 2px 0 0 var(--color-primary-light);
-
-    & .info {
-      @apply flex justify-between;
-    }
   }
 
+  /* Search bar */
   .search {
     @apply w-full bg-background-light p-2 rounded-full border-primary-light border-2 my-5 max-w-3xl mx-auto;
     box-shadow: inset 0 2px 0 0 var(--color-primary-light);
 
-    & div {
-      @apply relative flex items-center;
-    }
-
-    & img {
-      @apply absolute h-5 w-5;
-    }
-
     & input {
-      @apply w-full bg-transparent py-2 sm:pr-10 pl-10 text-base text-primary placeholder-primary-light outline-hidden;
+      @apply w-full py-2 pl-10 sm:pr-10 text-base text-primary placeholder-primary-light bg-transparent outline-hidden;
     }
 
     & .clearButton {
-      @apply mr-2 font-bold bg-secondary text-background-light px-2 py-0.5 rounded-full hoverButton;
+      @apply mr-2 px-2 py-0.5 rounded-full font-bold bg-secondary text-background-light hoverButton;
       box-shadow: 0 3px 0 0 var(--color-secondary-dark);
     }
   }
 
+  /* Sort By dropdown menu */
   .dropdown-wrapper {
-    @apply relative flex flex-row items-center gap-3 justify-center px-2 pb-5;
+    @apply relative flex flex-row items-center justify-center gap-3 px-2 pb-5;
 
     & .dropdown-header {
-      @apply flex flex-row bg-background-light border-primary-light border-2 rounded-full py-1 px-5
-      text-primary text-xl justify-between w-auto items-center gap-5 hoverButton;
+      @apply flex flex-row py-1 px-5 w-auto items-center justify-between gap-5 rounded-full
+      bg-background-light border-primary-light border-2 text-primary text-xl   hoverButton;
       box-shadow: 0 2px 0 0 var(--color-primary-light);
     }
 
+    /* List of items that appears after clicking the dropdown button*/
     & .dropdown-list {
-      @apply absolute top-[95%] flex flex-col bg-background-light border-primary-light border-2
-       rounded-xl p-1 justify-between items-start w-40 cursor-pointer z-10
-        text-primary text-xl;
+      @apply absolute top-[95%] flex flex-col rounded-xl p-1 justify-between items-start w-40
+      bg-background-light border-primary-light border-2  text-primary text-xl cursor-pointer z-10;
       box-shadow: 0 2px 0 0 var(--color-primary-light);
     }
 
+    /* Item in the dropdown list */
     & .dropdown-item {
       @apply hover:bg-primary-light/50 w-full text-left px-2 rounded-md cursor-pointer;
     }
   }
 
-  .rating {
-    @apply flex flex-row items-center gap-1;
-  }
-
+  /* Wrapper that contains all the info elements for a movie*/
+  /* The same classes and styles are used in the About page */
   .movie-info {
-    @apply bg-background-light flex flex-col p-6 xs:p-10 mx-auto text-lg lg:max-w-5xl border-primary-light border-5 rounded-4xl;
+    @apply flex flex-col p-6 xs:p-10 mx-auto lg:max-w-5xl rounded-4xl
+    bg-background-light text-lg border-primary-light border-5;
     box-shadow: 0 8px 0 0 var(--color-primary-light);
 
-    & .movie-title {
-      @apply text-primary max-w-4xl text-4xl xs:text-6xl;
-    }
-
-    & .info-item {
-      @apply flex flex-wrap py-2
-      border-b-2 border-primary-light border-dotted;
+    /* Each subsection in a movie's page (Overview and Info) */
+    & .info-section {
+      @apply bg-white/90 rounded-2xl  p-5;
     }
 
     & .info-section-title {
       @apply text-xl font-semibold text-white bg-secondary rounded-full py-3 px-6 ml-3;
     }
 
-    & .info-section {
-      @apply bg-white/90 rounded-2xl  p-5;
+    /* Each item in the Info subsection of a movie's page (title, director, producer) */
+    & .info-item {
+      @apply flex flex-wrap py-2
+      border-b-2 border-primary-light border-dotted;
     }
 
     & .info-item-title {

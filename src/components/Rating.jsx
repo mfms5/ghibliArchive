@@ -5,7 +5,7 @@
 
 const Rating = ({ rating }) => {
   return (
-    <div className="rating" data-testid="rating">
+    <div className="flex flex-row items-center gap-1" data-testid="rating">
       <p>{Math.round((rating / 10) * 10) / 10}</p>
       <img
         src="/star.png"

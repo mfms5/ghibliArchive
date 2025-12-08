@@ -18,7 +18,7 @@ const MovieCard = ({ title, posterUrl, year, rating, id }) => {
     >
       <img className="rounded-lg w-full h-auto" src={posterUrl} alt={title} />
       <h3>{title}</h3>
-      <div className="info">
+      <div className="flex justify-between">
         <p>{year}</p>
         <Rating rating={rating} />
       </div>
