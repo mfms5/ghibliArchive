@@ -1,3 +1,10 @@
+/**
+ * Search bar component for the movie list, to search movies by title.
+ * Includes a controlled input textbox and a button to clear its content.
+ * The text typed by the user is debounce for 500ms before it is sent
+ * to the MovieList component through the reference received by props.
+ */
+
 import { useState, useEffect } from "react";
 import { useDebounce } from "use-debounce";
 

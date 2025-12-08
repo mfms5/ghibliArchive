@@ -1,3 +1,9 @@
+/**
+ * /about
+ *
+ * "About" page with information regarding the project, as well as third-party resources used.
+ */
+
 const About = () => {
   const resources = [
     { title: "Studio Ghibli API", link: "https://ghibliapi.vercel.app/" },

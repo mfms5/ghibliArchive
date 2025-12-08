@@ -1,3 +1,7 @@
+/**
+ * Collection of API calls used by the components.
+ */
+
 import axios from "axios";
 
 const baseURL = "https://ghibliapi.vercel.app";

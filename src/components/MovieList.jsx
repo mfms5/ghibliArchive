@@ -1,3 +1,13 @@
+/**
+ * Renders each movie in the list as a MovieCard.
+ *
+ * Contains functions to filter and sort the movie list. These functions are called from componentes
+ * Search and Sort, through a reference to this component, upon user input.
+ * Since the API doesn't provide endpoints to filter or sort the results at the moment,
+ * these operations are done manually on the list that contains all available movies.
+ * The functions that perform the sorting and filtering are imported from ../utils/movieListOperations.js.
+ */
+
 import { useState, useEffect, useImperativeHandle } from "react";
 import moviesService from "../services/movies";
 import MovieCard from "./MovieCard";
@@ -12,6 +22,7 @@ const MovieList = (props) => {
   const [moviesToShow, setMoviesToShow] = useState([]);
   const [sortType, setSortingType] = useState("yearAsc");
 
+  // Make GET request to Ghibli API through the service to obtain all movies upon loading the page.
   useEffect(() => {
     moviesService
       .getAllMovies()
@@ -22,6 +33,11 @@ const MovieList = (props) => {
       .catch((error) => console.log("Error fetching movies: ", error));
   }, []);
 
+  /**
+   * Called from the Search component when the user enters text in the textbox.
+   * The selected sorting method is applied to the search result as well.
+   * If no search term has been entered (or if the textbox has been cleared), all movies are displayed.
+   */
   const filterSearch = (searchTerm) => {
     if (!searchTerm) {
       sortMovies(allMovies);
@@ -30,9 +46,13 @@ const MovieList = (props) => {
     }
   };
 
+  /**
+   * Executed every time the state variable sortType changes after the user selects a sorting method,
+   * or after the movie list is filtered by title, to maintain the selected order.
+   */
   const sortMovies = (moviesToSort) => {
     switch (sortType) {
-      //Default order in the API
+      // Default order in the API
       case "yearAsc":
         setMoviesToShow(sortByYear(moviesToSort, true));
         break;
@@ -50,12 +70,15 @@ const MovieList = (props) => {
 
   useEffect(() => sortMovies(moviesToShow), [sortType]);
 
+  // References used by Search and Sort components to call these functions
   useImperativeHandle(props.ref, () => {
     return { filterSearch, setSortingType };
   });
 
+  // API request has not been satisfied yet
   if (allMovies.length === 0) return <div>Loading...</div>;
 
+  // No movies meet the search criteria
   if (moviesToShow.length === 0) return <div>No movies found!</div>;
 
   return (

@@ -1,3 +1,14 @@
+/**
+ * /movies/${id}
+ *
+ * Single page that displays all of the information for a movie:
+ * Poster, title, release year, running time, rating, description,
+ * original and romanized titles, director and producer.
+ *
+ * Calls the Ghibli API through the movie service to obtain the data.
+ * Movie id is obtained from the URL parameter.
+ */
+
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import moviesService from "../services/movies";
@@ -7,6 +18,7 @@ const MovieInfo = () => {
   const [movie, setMovie] = useState();
   const id = useParams().id;
 
+  // Make GET request to Ghibli API through the service upon loading the page
   useEffect(() => {
     moviesService
       .getMovieById(id)
@@ -18,6 +30,7 @@ const MovieInfo = () => {
     return <div>Loading...</div>;
   }
 
+  // Display given running time (in seconds) with a "Xh Ymin" format
   const formatRunningTime = (runningTime) => {
     const hours = Math.trunc(runningTime / 60);
     const minutes = Math.round(runningTime % 60);

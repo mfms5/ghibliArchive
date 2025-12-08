@@ -1,3 +1,7 @@
+/**
+ * Main page, shows the movie list along with the Search and Sort widgets.
+ */
+
 import Header from "./Header";
 import MovieList from "./MovieList";
 import Search from "./Search";

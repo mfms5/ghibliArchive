@@ -4,7 +4,7 @@ import "@testing-library/jest-dom/vitest";
 import { http, HttpResponse } from "msw";
 import { setupServer } from "msw/node";
 
-//Ghibli API requests mocking
+//Mock data to simulate API requests in tests
 const movieInfoFull = {
   title: "Test movie",
   image: "Test image url",
@@ -36,6 +36,7 @@ const moviesForList = [
   },
 ];
 
+//Simulate API requests with Mock Service Workers
 export const handlers = [
   http.get("https://ghibliapi.vercel.app/films/1", () => {
     return HttpResponse.json(movieInfoFull);
@@ -48,7 +49,7 @@ export const handlers = [
 export const server = setupServer(...handlers);
 
 //Start server before all tests
-//An error is thrown for requests that don0t have a corresponding handler
+//An error is thrown for requests that don't have a corresponding handler
 beforeAll(() => server.listen({ onUnhandledRequest: "error" }));
 
 //Close server after all tests

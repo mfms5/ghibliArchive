@@ -1,12 +1,20 @@
+/**
+ * Custom dropdown menu component for the movie list, to sort movies by
+ * year (ascendant or descendant) or rating (ascendant or descendant).
+ * The sorting method selected by the user is sent to the MovieList component
+ * through the reference received by props.
+ */
+
 import { useCallback, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleUp, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 
 const Sort = ({ movieListRef }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [sortingTypeValue, setSortingTypeValue] = useState("yearAsc");
   const [sortingTypeLabel, setSortingTypeLabel] = useState("Year ↑");
 
+  // The name will be displayed as the selected method in the dropdown menu.
+  // The value is sent to MovieList.
   const types = [
     { name: "Year ↑", value: "yearAsc" },
     { name: "Year ↓", value: "yearDes" },
@@ -14,8 +22,11 @@ const Sort = ({ movieListRef }) => {
     { name: "Rating ↓", value: "ratingDes" },
   ];
 
+  /**
+   * After the user selects a sorting method from the dropdown menu,
+   * the value is sent to MovieList through its reference, and the menu is closed.
+   */
   const onChangeSortType = (type, name) => {
-    setSortingTypeValue(type);
     setSortingTypeLabel(name);
     movieListRef.current.setSortingType(type);
     setIsOpen(false);
@@ -25,7 +36,7 @@ const Sort = ({ movieListRef }) => {
     setIsOpen(false);
   }, []);
 
-  //Allow for closing the dropdown by clicking outside
+  // Allow for closing the dropdown by clicking outside
   useEffect(() => {
     setTimeout(() => {
       if (isOpen) {

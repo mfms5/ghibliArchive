@@ -1,3 +1,8 @@
+/**
+ * Reusable component to display a movie's rating in the appropiate format
+ * (0-10 with a single decimal, unless it is 0) and a star icon.
+ */
+
 const Rating = ({ rating }) => {
   return (
     <div className="rating" data-testid="rating">

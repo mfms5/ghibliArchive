@@ -1,11 +1,16 @@
-//Search
+/**
+ * Collection of filtering and sorting operations done on the movie array.
+ * Called mainly by the MovieList component.
+ */
+
+// Search
 export const filterByTitle = (title, allMovies) => {
   return allMovies.filter((movie) =>
     movie.title.toLowerCase().includes(title.toLowerCase())
   );
 };
 
-//Sorting
+// Sorting
 export const sortByRating = (allMovies, ascendent) => {
   const order = ascendent ? 1 : -1;
   //Slice to create new array

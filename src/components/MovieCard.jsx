@@ -1,3 +1,9 @@
+/**
+ * Represents a movie in the main page's movie list.
+ * Displays the movie's poster, title, release year and rating.
+ * Clicking a card opens the movie info page.
+ */
+
 import { useNavigate } from "react-router-dom";
 import Rating from "./Rating";
 

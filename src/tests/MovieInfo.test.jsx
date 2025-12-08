@@ -3,19 +3,19 @@ import { vi } from "vitest";
 import MovieInfo from "../components/MovieInfo";
 
 describe("<MovieCard />", () => {
-  //API call mocked with MSW
+  // API call mocked with MSW
   test("Renders movie information obtained from API call", async () => {
-    //Mock useParams to obtain the movie id
+    // Mock useParams to obtain the movie id
     vi.mock("react-router-dom", () => ({
       useParams: () => ({ id: "1" }),
     }));
 
-    //Render component
+    // Render component
     render(<MovieInfo />);
 
-    //Wait for asynchronous state updates
+    // Wait for asynchronous state updates
     await waitFor(() => {
-      //Title, year, running time, rating, description, director, producer and original title should be visible
+      // Title, year, running time, rating, description, director, producer and original title should be visible
       let element = screen.getByText("Test movie");
       expect(element).toBeVisible();
       element = screen.getByText("2025");
@@ -41,14 +41,14 @@ describe("<MovieCard />", () => {
   });
 
   test("Show Loading text if the movie has not been fetched yet", () => {
-    //Render component
+    // Render component
     render(<MovieInfo />);
 
-    //"Loading..."  text should be visible
+    // "Loading..."  text should be visible
     let element = screen.getByText("Loading...");
     expect(element).toBeVisible();
 
-    //Other elements, like Overview or Info, must not appear
+    // Other elements, like Overview or Info, must not appear
     element = screen.queryByText("Overview");
     expect(element).not.toBeInTheDocument();
     element = screen.queryByText("Info");

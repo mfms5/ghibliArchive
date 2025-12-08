@@ -5,6 +5,7 @@ import MovieCard from "../components/MovieCard";
 import { BrowserRouter } from "react-router-dom";
 
 describe("<MovieCard />", () => {
+  // Mock data for one movie
   const movie = {
     title: "Test movie",
     image: "https://placedog.net/500",
@@ -14,7 +15,7 @@ describe("<MovieCard />", () => {
   };
 
   test("Renders title, year and rating on the card", () => {
-    //Render component
+    // Render component
     render(
       <BrowserRouter>
         <MovieCard
@@ -27,22 +28,22 @@ describe("<MovieCard />", () => {
       </BrowserRouter>
     );
 
-    //Title, year and rating should be visible
+    // Title, year and rating should be visible
     let element = screen.getByText("Test movie");
     expect(element).toBeVisible();
     element = screen.getByText("2025");
     expect(element).toBeVisible();
-    element = screen.getByText("8.6"); //Rating should be properly formatted
+    element = screen.getByText("8.6"); // Rating should be properly formatted
     expect(element).toBeVisible();
 
-    //Poster image should have the correct url as its source, and the movie title as its alt
+    // Poster image should have the correct url as its source, and the movie title as its alt
     element = screen.getAllByRole("img")[0];
     expect(element).toHaveAttribute("src", movie.image);
     expect(element).toHaveAttribute("alt", movie.title);
   });
 
   test("Clicking the card redirects to the movie's info page", async () => {
-    //Mock useNavigate
+    // Mock useNavigate
     const { mockUseNavigate } = vi.hoisted(() => {
       return { mockUseNavigate: vi.fn() };
     });
@@ -56,7 +57,7 @@ describe("<MovieCard />", () => {
       };
     });
 
-    //Render component
+    // Render component
     render(
       <BrowserRouter>
         <MovieCard
@@ -71,6 +72,7 @@ describe("<MovieCard />", () => {
 
     const user = userEvent.setup();
 
+    // Simulate user's click on the card
     const card = screen.getByTestId("movieCard");
     await user.click(card);
 

@@ -1,3 +1,7 @@
+/**
+ * Header component for the "Home" page with the website's title.
+ */
+
 const Header = () => {
   return (
     <header>

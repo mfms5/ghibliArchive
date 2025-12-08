@@ -1,3 +1,7 @@
+/**
+ * Footer component with links to the "About" page and the GitHub repository.
+ */
+
 import { Link } from "react-router-dom";
 
 const Footer = () => {

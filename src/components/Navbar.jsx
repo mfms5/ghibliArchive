@@ -1,3 +1,8 @@
+/**
+ * Navigation bar shown at the top of the website for all its pages.
+ * Contains buttons to navigate to the "Home" page and the "About" page.
+ */
+
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
