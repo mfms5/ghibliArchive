@@ -1,0 +1,32 @@
+name: Deployment pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deployment_pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Install dependencies
+        run: npm Install
+
+      - name: Linter
+        run: npm run Linter
+
+      - name: Tests
+        run: npm run Tests
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to Github pages
+        uses: JamesIves/github-pages-deploy-action@v4.7
+        with:
+          folder: dist
