@@ -13,6 +13,7 @@ Built as a short personal project to practice front-end development with React a
 ## Table of Contents
 
 1. [Introduction](#introduction)
+   - [Features](#features)
    - [Upcoming Features](#upcoming-features)
 2. [Technologies Used](#technologies-used)
 3. [How to Run Locally](#how-to-run-locally)
