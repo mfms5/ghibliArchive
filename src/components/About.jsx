@@ -49,7 +49,10 @@ const About = () => {
           target="_blank"
           className="flex flex-row bg-[#24292F] rounded-full w-auto p-2 items-center mt-4 hoverButton"
         >
-          <img className="w-20 h-auto" src="github-mark-white.png" />
+          <img
+            className="w-20 h-auto"
+            src={`${import.meta.env.BASE_URL}github-mark-white.png`}
+          />
           <span className="mx-5 text-white text-xl sm:text-2xl text-center">
             mfms5/
             <br />

@@ -9,11 +9,19 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <Link to="/" className="">
-        <img src="home.png" alt="home" className="left-2" />
+        <img
+          src={`${import.meta.env.BASE_URL}home.png`}
+          alt="home"
+          className="left-2"
+        />
         Home
       </Link>
       <Link to="/about">
-        <img src="info.png" alt="about" className="left-2" />
+        <img
+          src={`${import.meta.env.BASE_URL}info.png`}
+          alt="about"
+          className="left-2"
+        />
         About
       </Link>
     </div>

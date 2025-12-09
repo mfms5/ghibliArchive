@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <Router basename={import.meta.env.DEV ? "/" : "/ghibliArchive/"}>
+    <Router basename={import.meta.env.BASE_URL}>
       <div className="body">
         <main className="grow">
           <Navbar />

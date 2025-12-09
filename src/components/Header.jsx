@@ -5,7 +5,10 @@
 const Header = () => {
   return (
     <header>
-      <img src="ghiblilogo_white_shadow.png" alt="Studio Ghibli logo" />
+      <img
+        src={`${import.meta.env.BASE_URL}ghiblilogo_white_shadow.png`}
+        alt="Studio Ghibli logo"
+      />
       <h1>Archive</h1>
     </header>
   );

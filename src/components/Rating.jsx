@@ -8,7 +8,7 @@ const Rating = ({ rating }) => {
     <div className="flex flex-row items-center gap-1" data-testid="rating">
       <p>{Math.round((rating / 10) * 10) / 10}</p>
       <img
-        src="star.png"
+        src={`${import.meta.env.BASE_URL}star.png`}
         alt="Star icon"
         className="w-5 group-hover:animate-sway"
       />
