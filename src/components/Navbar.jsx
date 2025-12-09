@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <div className="navbar">
-      <Link to={import.meta.env.DEV ? "/" : "/ghibliArchive"} className="">
+      <Link to="/" className="">
         <img src="home.png" alt="home" className="left-2" />
         Home
       </Link>
