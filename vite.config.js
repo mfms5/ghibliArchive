@@ -10,4 +10,5 @@ export default defineConfig({
     globals: true,
     setupFiles: "./testSetup.js",
   },
+  base: "/ghibliArchive/",
 });
