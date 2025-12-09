@@ -1,4 +1,4 @@
-# Ghibli Archive
+# Studio Ghibli Archive
 
 ### 🔗 [https://mfms5.github.io/ghibliArchive/](https://mfms5.github.io/ghibliArchive/)
 
@@ -23,7 +23,7 @@ Built as a short personal project to practice front-end development with React a
 
 ## 🍃 Introduction
 
-_Ghibli Archive_ is a small website that showcases the iconic movies by japanese animation studio [Studio Ghibli](https://www.ghibli.jp/).
+_Studio Ghibli Archive_ is a small website that showcases the iconic movies by japanese animation studio [Studio Ghibli](https://www.ghibli.jp/).
 
 ### Features:
 
