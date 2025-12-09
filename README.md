@@ -26,7 +26,7 @@ _Ghibli Archive_ is a small website that showcases the iconic movies by japanese
 
 ### Features:
 
-- **Movie List*:* The **main page\*\* displays a grid of movie cards that show a film's poster, English title, release year and its rating score in Rotting Tomatoes.
+- **Movie List**: The \*\*main page\*\* displays a grid of movie cards that show a film's poster, English title, release year and its rating score in Rotting Tomatoes.
   ![Home page](./readmeImages/homePage.png)
 - **Search and Sort**: The user can **search** a movie by title, and **sort** them by release year or rating score.
   ![Search and sort](./readmeImages/movieFilterSort.png)
