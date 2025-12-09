@@ -17,7 +17,7 @@ import {
   sortByYear,
 } from "../utils/movieListOperations";
 
-const MovieList = (props) => {
+const MovieList = ({ ref }) => {
   const [allMovies, setAllMovies] = useState([]);
   const [moviesToShow, setMoviesToShow] = useState([]);
   const [sortType, setSortingType] = useState("yearAsc");
@@ -71,7 +71,7 @@ const MovieList = (props) => {
   useEffect(() => sortMovies(moviesToShow), [sortType]);
 
   // References used by Search and Sort components to call these functions
-  useImperativeHandle(props.ref, () => {
+  useImperativeHandle(ref, () => {
     return { filterSearch, setSortingType };
   });
 
