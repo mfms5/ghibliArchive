@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer>
-      <img src="/grassFooter.png" alt="Grass footer" />
+      <img src="grassFooter.png" alt="Grass footer" />
       <div className="w-full mx-auto px-4 pb-4 md:flex md:items-center md:justify-between bg-secondary text-background-light">
         <span className="text-sm text-body sm:text-center">
           {new Date().getFullYear()} • Marta FMS.
