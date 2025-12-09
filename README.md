@@ -96,3 +96,7 @@ npm run dev
 - [Totoro icon by icons8](https://icons8.com/icon/IRRpeULs7luU/totoro).
 - [Tailwind Animations by Midudev](https://github.com/midudev/tailwind-animations).
 - [Design inspired by Matt Wierzbicki's Matsu-theme for shadcn/ui](https://matsu-theme.vercel.app/).
+
+---
+
+<sub>Entirely coded and written by a human ✌️</sub>
