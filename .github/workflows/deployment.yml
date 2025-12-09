@@ -15,13 +15,13 @@ jobs:
           node-version: "24"
 
       - name: Install dependencies
-        run: npm Install
+        run: npm install
 
       - name: Linter
-        run: npm run Linter
+        run: npm run lint
 
       - name: Tests
-        run: npm run Tests
+        run: npm run test
 
       - name: Build
         run: npm run build
